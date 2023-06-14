@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { SearchIcon } from '@/assets/icon/SearchIcon.jsx';
-import { ListIcon } from '@/assets/icon/ListIcon.jsx';
+import { SortIcon } from '@/assets/icon/SortIcon.jsx';
 
 import styles from './Search.module.scss';
 
@@ -16,7 +16,7 @@ export const Search = () => {
           className={styles.searchInput}
           placeholder={'Введи имя, тег, почту...'}
         />
-        <ListIcon className={styles.searchIcon} />
+        <SortIcon className={styles.searchIcon} />
       </div>
     </div>
   );
