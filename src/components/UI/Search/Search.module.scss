@@ -1,0 +1,47 @@
+@import 'variables';
+
+.search {
+  display: flex;
+  flex-direction: column;
+
+  &Label {
+    font-family: $mainFont;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: $primaryColor;
+
+    margin: 0 0 12px 0;
+  }
+
+  &Wrapper {
+    display: flex;
+    align-items: center;
+    padding: 9px;
+    background: $bgSecondary;
+    border-radius: 16px;
+  }
+
+  &Icon {
+    width: 20px;
+    height: 20px;
+    fill: $secondaryColor;
+  }
+
+  &Input {
+    width: 100%;
+    font-family: $mainFont;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    color: #050510;
+    padding: 0 10px;
+
+    &::placeholder {
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 20px;
+      color: $tetriaryColor;
+    }
+  }
+}
