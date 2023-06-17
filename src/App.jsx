@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { useGetUsersQuery } from '@/store/users/usersApiSlice.js';
+import React from 'react';
+import { MainProvider } from '@/providers/MainProviders.jsx';
+import { AppRouter } from '@/router/AppRouter.jsx';
 
-import { Header } from 'components/Header/Header.jsx';
+import { Header } from 'components/layout/Header/Header.jsx';
 
 import './App.scss';
 
 function App() {
-  const { data, isLoading, isError } = useGetUsersQuery();
-
-  console.log(data);
-
   return (
-    <div className="container">
-      <Header />
-    </div>
+    <>
+      <MainProvider>
+        <Header />
+        <AppRouter />
+      </MainProvider>
+    </>
   );
 }
 

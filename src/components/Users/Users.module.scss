@@ -1,0 +1,66 @@
+@import 'variables';
+
+.users {
+  display: flex;
+  flex-direction: column;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+
+  &:not(:last-child) {
+    margin: 0 0 12px 0;
+  }
+
+  &Avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 16px 0 0;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &Info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &Top {
+    display: flex;
+    align-items: center;
+    margin: 0 0 3px 0;
+  }
+
+  &Name {
+    font-family: $mainFont;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: $primaryColor;
+  }
+
+  &Tag {
+    font-family: $mainFont;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: $tetriaryColor;
+    margin: 0 0 0 4px;
+  }
+
+  &Position {
+    font-family: $mainFont;
+    font-size: 13px;
+    line-height: 16px;
+    text-transform: capitalize;
+    color: #55555c;
+  }
+}
