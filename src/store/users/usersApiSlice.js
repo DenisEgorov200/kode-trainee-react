@@ -8,7 +8,15 @@ const usersApiSlice = apiSlice.injectEndpoints({
   }),
   endpoints: (builder) => ({
     getUsers: builder.query({
-      query: () => '/users?__example=all',
+      query: (arg) => {
+        const { example } = arg;
+        console.log(example);
+
+        return {
+          url: `/users`,
+          params: { __example: example },
+        };
+      },
     }),
   }),
 });

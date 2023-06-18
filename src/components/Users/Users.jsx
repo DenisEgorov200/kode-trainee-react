@@ -1,5 +1,6 @@
 import React from 'react';
 import { useGetUsersQuery } from '@/store/users/usersApiSlice.js';
+import { useSelector } from 'react-redux';
 
 import { ErrorBoundary } from 'components/ErrorBoundary/ErrorBoundary.jsx';
 import { User } from 'components/Users/User.jsx';
@@ -8,7 +9,8 @@ import { UserSkeleton } from 'components/Users/UserSkeleton.jsx';
 import styles from './Users.module.scss';
 
 export const Users = () => {
-  const { data: users, isLoading, isError } = useGetUsersQuery();
+  const userType = useSelector((state) => state.filter.sortBy.type);
+  const { data: users, isLoading, isError } = useGetUsersQuery({ example: userType });
 
   return (
     <div className={styles.users}>
