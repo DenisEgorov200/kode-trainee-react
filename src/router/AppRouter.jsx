@@ -1,11 +1,15 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Home } from 'pages/Home/Home.jsx';
+import { ErrorBoundary } from 'components/ErrorBoundary/ErrorBoundary.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/home',
     element: <Home />,
-    errorElement: <div>Route not found</div>,
+  },
+  {
+    path: '*',
+    element: <ErrorBoundary />,
   },
 ]);
 
