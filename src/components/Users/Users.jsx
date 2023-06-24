@@ -9,14 +9,16 @@ import { UserSkeleton } from 'components/Users/UserSkeleton.jsx';
 import styles from './Users.module.scss';
 
 export const Users = () => {
+  const filteredUsers = useSelector((state) => state.filter.filteredUsers);
   const userType = useSelector((state) => state.filter.sortBy.type);
-  const { data: users, isLoading, isError } = useGetUsersQuery({ example: userType });
+
+  const { isLoading, isError } = useGetUsersQuery({ example: userType });
 
   return (
     <div className={styles.users}>
       {isError && <ErrorBoundary />}
       {isLoading && <UserSkeleton cards={8} />}
-      {users?.items?.map((user) => (
+      {filteredUsers?.map((user) => (
         <User key={user.id} user={user} />
       ))}
     </div>
