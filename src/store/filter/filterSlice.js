@@ -6,8 +6,8 @@ const filterSlice = createSlice({
     users: [],
     filteredUsers: [],
     categoryId: 0,
+    category: { name: 'Все', type: 'all' },
     searchFilter: '',
-    sortBy: { name: 'Все', type: 'all' },
   },
   reducers: {
     setUser: (state, action) => {
@@ -18,6 +18,9 @@ const filterSlice = createSlice({
     setCategoryId: (state, action) => {
       state.categoryId = action.payload;
     },
+    setCategory: (state, action) => {
+      state.category = action.payload;
+    },
     setSearchFilter: (state, action) => {
       state.searchFilter = action.payload;
 
@@ -25,12 +28,9 @@ const filterSlice = createSlice({
         user.firstName.toLowerCase().includes(state.searchFilter.toLowerCase()),
       );
     },
-    setSort: (state, action) => {
-      state.sortBy = action.payload;
-    },
   },
 });
 
-export const { setUser, setCategoryId, setSearchFilter, setSort } = filterSlice.actions;
+export const { setUser, setCategoryId, setSearchFilter, setCategory } = filterSlice.actions;
 
 export default filterSlice.reducer;
