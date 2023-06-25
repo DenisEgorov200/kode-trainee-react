@@ -1,12 +1,19 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import plug from 'assets/img/Plug.jpg';
 
 import styles from './Users.module.scss';
 
 export const User = ({ user }) => {
+  const navigate = useNavigate();
+
+  const onClickUser = () => {
+    navigate(`/contacts/${user.id}`);
+  };
+
   return (
-    <div className={styles.user}>
+    <div className={styles.user} onClick={onClickUser}>
       <div className={styles.userAvatar}>
         <img src={plug} alt={`${user.firstName} ${user.lastName}`} />
       </div>
