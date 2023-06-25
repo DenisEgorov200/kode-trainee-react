@@ -9,7 +9,7 @@ export const User = ({ user }) => {
   const navigate = useNavigate();
 
   const onClickUser = () => {
-    navigate(`/contacts/${user.id}`);
+    navigate(`/contact/${user.id}`);
   };
 
   return (

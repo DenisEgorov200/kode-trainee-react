@@ -1,0 +1,128 @@
+@import 'variables';
+.contact {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+
+  &Container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &Header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 72px 0 24px 0;
+    background: $bgSecondary;
+  }
+
+  &Cancel {
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  &Avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 0 24px 0;
+
+    img {
+      height: 100%;
+      max-width: 100%;
+    }
+  }
+
+  &Info {
+    display: flex;
+    align-items: center;
+    margin: 0 0 12px 0;
+  }
+
+  &Name {
+    font-family: $mainFont;
+    font-weight: 700;
+    font-size: 24px;
+    color: $primaryColor;
+    margin: 0 4px 0 0;
+  }
+
+  &Tag {
+    font-family: $mainFont;
+    font-size: 17px;
+    line-height: 22px;
+    color: $tetriaryColor;
+  }
+
+  &Position {
+    font-family: $mainFont;
+    font-size: 13px;
+    line-height: 16px;
+    color: #55555c;
+  }
+
+  &Body {
+    width: 100%;
+    padding: 26px 0;
+  }
+
+  &Row {
+    width: 100%;
+    padding: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &YearBirth {
+    display: flex;
+    align-items: center;
+    font-family: $mainFont;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: $primaryColor;
+  }
+
+  &Icon {
+    width: 24px;
+    height: 24px;
+    fill: $primaryColor;
+    max-width: 100%;
+    margin: 0 12px 0 0;
+  }
+
+  &Year {
+    font-family: $mainFont;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: $tetriaryColor;
+  }
+
+  &Tel {
+    display: flex;
+    align-items: center;
+    font-family: $mainFont;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+
+    a {
+      color: $primaryColor;
+    }
+  }
+}
