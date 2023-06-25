@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCategoryId, setCategory } from '@/store/filter/filterSlice.js';
+import { setCategoryId, setCategory } from '@/store/filter/categorySlice.js';
 
 import styles from './Categories.module.scss';
 
@@ -14,7 +14,7 @@ const categories = [
 
 export const Categories = () => {
   const dispatch = useDispatch();
-  const activeIndex = useSelector((state) => state.filter.categoryId);
+  const activeIndex = useSelector((state) => state.category.categoryId);
 
   const onClickCategory = (index, category) => {
     dispatch(setCategoryId(index));

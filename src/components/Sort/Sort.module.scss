@@ -57,7 +57,7 @@
     margin: 0 12px 0 0;
   }
 
-  &Radio:checked ~ &Checkmark {
+  &Radio.active ~ &Checkmark {
     background-color: $activePrimaryColor;
   }
 

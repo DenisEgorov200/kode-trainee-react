@@ -9,7 +9,7 @@ import { UserSkeleton } from 'components/Users/UserSkeleton.jsx';
 import styles from './Users.module.scss';
 
 export const Users = () => {
-  const userType = useSelector((state) => state.filter.category.type);
+  const userType = useSelector((state) => state.category.category.type);
 
   const { data: users, isLoading, isError } = useGetUsersQuery({ example: userType });
 

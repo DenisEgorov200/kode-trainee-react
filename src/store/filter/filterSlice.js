@@ -1,12 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const filterSlice = createSlice({
+const filtersSlice = createSlice({
   name: 'filters',
   initialState: {
     users: [],
     filteredUsers: [],
-    categoryId: 0,
-    category: { name: 'Все', type: 'all' },
     searchFilter: '',
   },
   reducers: {
@@ -14,12 +12,6 @@ const filterSlice = createSlice({
       state.users = action.payload;
 
       state.filteredUsers = state.users;
-    },
-    setCategoryId: (state, action) => {
-      state.categoryId = action.payload;
-    },
-    setCategory: (state, action) => {
-      state.category = action.payload;
     },
     setSearchFilter: (state, action) => {
       state.searchFilter = action.payload;
@@ -31,6 +23,6 @@ const filterSlice = createSlice({
   },
 });
 
-export const { setUser, setCategoryId, setSearchFilter, setCategory } = filterSlice.actions;
+export const { setUser, setSearchFilter } = filtersSlice.actions;
 
-export default filterSlice.reducer;
+export default filtersSlice.reducer;
