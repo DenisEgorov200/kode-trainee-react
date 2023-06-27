@@ -1,15 +1,19 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import plug from 'assets/img/Plug.jpg';
+import { setCurrentUser } from '@/store/users/currentUserSlice.js';
 
+import plug from 'assets/img/Plug.jpg';
 import styles from './Users.module.scss';
 
 export const User = ({ user }) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const onClickUser = () => {
     navigate(`/contact/${user.id}`);
+    dispatch(setCurrentUser(user));
   };
 
   return (
