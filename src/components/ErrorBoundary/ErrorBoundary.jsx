@@ -7,7 +7,7 @@ import styles from './ErrorBoundary.module.scss';
 export const ErrorBoundary = () => {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate('/home');
+    navigate('/');
     window.location.reload(false);
   };
 

@@ -5,7 +5,7 @@ import { ErrorBoundary } from 'components/ErrorBoundary/ErrorBoundary.jsx';
 
 const router = createBrowserRouter([
   {
-    path: '/home',
+    path: '/',
     element: <Home />,
   },
   {

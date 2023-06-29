@@ -17,14 +17,6 @@ const usersApiSlice = apiSlice.injectEndpoints({
           params: { __example: example },
         };
       },
-      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-        try {
-          const { data } = await queryFulfilled;
-          dispatch(setUser(data.items));
-        } catch (err) {
-          console.log(err);
-        }
-      },
     }),
   }),
 });

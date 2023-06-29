@@ -19,7 +19,7 @@ export const Contact = () => {
   const date = new Date(user.birthday);
 
   const onClickCancel = () => {
-    navigate('/home');
+    navigate('/');
   };
 
   return (
