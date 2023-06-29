@@ -1,0 +1,23 @@
+@import 'variables';
+
+.status {
+  padding: 26px 0;
+  background: $errorColor;
+
+  font-family: $mainFont;
+  font-weight: 500;
+  line-height: 16px;
+  color: $whiteColor;
+  font-size: 13px;
+
+  &Title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    margin: 0 0 12px 0;
+  }
+}
+
+.active {
+  background: $activePrimaryColor;
+}

@@ -2,11 +2,11 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { formatPhone } from '@/services/formatPhone.js';
-import { getCurrentAge } from '@/services/getCurrentAge.js';
-import { formatDate } from '@/services/formatDate.js';
+import { formatPhone } from 'components/utils/formatPhone.js';
+import { getCurrentAge } from 'components/utils/getCurrentAge.js';
+import { formatDate } from 'components/utils/formatDate.js';
 
-import { CancelIcon } from 'assets/icon/CancelIcon.jsx';
+import { CanselIcon } from 'assets/icon/CancelIcon.jsx';
 import { PhoneIcon } from 'assets/icon/PhoneIcon.jsx';
 import { FavoriteIcon } from 'assets/icon/FavoriteIcon.jsx';
 import plug from 'assets/img/Plug.jpg';
@@ -35,7 +35,7 @@ export const Contact = () => {
           <span className={styles.contactTag}>{user.userTag}</span>
         </div>
         <span className={styles.contactPosition}>{user.position}</span>
-        <CancelIcon className={styles.contactCancel} onClick={onClickCancel} />
+        <CanselIcon className={styles.contactCancel} onClick={onClickCancel} />
       </div>
       <div className={styles.contactBody}>
         <div className={`container ${styles.contactContainer}`}>

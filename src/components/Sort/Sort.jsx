@@ -4,7 +4,7 @@ import { setSortId, setSortBy } from '@/store/filter/sortSlice.js';
 
 import { Modal } from 'components/Modal/Modal.jsx';
 
-import { CancelIcon } from 'assets/icon/CancelIcon.jsx';
+import { CloseIcon } from 'assets/icon/CloseIcon.jsx';
 import styles from './Sort.module.scss';
 
 const listOptions = [
@@ -28,7 +28,7 @@ export const Sort = ({ active, setActive }) => {
       <Modal active={active} setActive={setActive}>
         <div className={styles.sortHeader}>
           <h3 className={styles.sortTitle}>Сортировка</h3>
-          <CancelIcon className={styles.sortClose} onClick={() => setActive(false)} />
+          <CloseIcon className={styles.sortClose} onClick={() => setActive(false)} />
         </div>
         <div className={styles.sortOptions}>
           {listOptions.map((option, index) => (
