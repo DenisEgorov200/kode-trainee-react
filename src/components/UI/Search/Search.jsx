@@ -11,6 +11,7 @@ import styles from './Search.module.scss';
 export const Search = () => {
   const dispatch = useDispatch();
   const searchFilter = useSelector((state) => state.filter.searchFilter);
+  const sortId = useSelector((state) => state.sort.sortId);
 
   const [modalActive, setModalActive] = useState(false);
 
@@ -31,7 +32,10 @@ export const Search = () => {
             className={styles.searchInput}
             placeholder={'Введи имя, тег, почту...'}
           />
-          <SortIcon className={styles.searchIcon} onClick={() => setModalActive(!modalActive)} />
+          <SortIcon
+            className={sortId === 1 ? `${styles.searchIcon} ${styles.active}` : styles.searchIcon}
+            onClick={() => setModalActive(!modalActive)}
+          />
         </div>
       </div>
       {modalActive && <Sort active={modalActive} setActive={setModalActive} />}
