@@ -1,6 +1,6 @@
 import { fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { apiSlice } from '@/store/apiSlice.js';
-import { setUser } from '@/store/filter/filterSlice.js';
+import { setUsers } from '@/store/users/usersSlice.js';
 
 const usersApiSlice = apiSlice.injectEndpoints({
   reducerPath: 'apiSlice',
@@ -16,6 +16,14 @@ const usersApiSlice = apiSlice.injectEndpoints({
           url: `/users`,
           params: { __example: example },
         };
+      },
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+          dispatch(setUsers(data.items));
+        } catch (err) {
+          console.log(err);
+        }
       },
     }),
   }),

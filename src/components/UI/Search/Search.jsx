@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSearchFilter } from '@/store/filter/filterSlice.js';
+import { setFilter, setSearchText } from '@/store/users/usersSlice.js';
 
 import { Sort } from 'components/Sort/Sort.jsx';
 import { SearchIcon } from '@/assets/icon/SearchIcon.jsx';
@@ -8,15 +8,18 @@ import { SortIcon } from '@/assets/icon/SortIcon.jsx';
 
 import styles from './Search.module.scss';
 
+const filters = ['firstName', 'lastName', 'userTag'];
+
 export const Search = () => {
   const dispatch = useDispatch();
-  const searchFilter = useSelector((state) => state.filter.searchFilter);
+  const { searchText } = useSelector((state) => state.users);
   const sortId = useSelector((state) => state.sort.sortId);
 
   const [modalActive, setModalActive] = useState(false);
 
   const handleChange = (e) => {
-    dispatch(setSearchFilter(e.target.value));
+    dispatch(setSearchText(e.target.value));
+    dispatch(setFilter(filters));
   };
 
   return (
@@ -27,7 +30,7 @@ export const Search = () => {
           <SearchIcon className={styles.searchIcon} />
           <input
             type="search"
-            value={searchFilter}
+            value={searchText}
             onChange={(e) => handleChange(e)}
             className={styles.searchInput}
             placeholder={'Введи имя, тег, почту...'}
