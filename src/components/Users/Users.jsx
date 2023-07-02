@@ -15,10 +15,10 @@ export const Users = () => {
   const { filteredUsers } = useSelector((state) => state.users);
   const userType = useSelector((state) => state.category.category.type);
 
-  const { data: users, isFetching, isError } = useGetUsersQuery({ example: userType });
+  const { data: usersName, isFetching, isError } = useGetUsersQuery({ example: userType });
 
   useEffect(() => {
-    dispatch(setUsers(users?.items));
+    dispatch(setUsers(usersName?.items));
   }, [userType]);
 
   if (isError) return <ErrorBoundary />;

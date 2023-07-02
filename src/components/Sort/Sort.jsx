@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSortId, setSortBy } from '@/store/filter/sortSlice.js';
+import { setSorted } from '@/store/users/usersSlice.js';
 
 import { Modal } from 'components/Modal/Modal.jsx';
 
@@ -16,10 +17,11 @@ export const Sort = ({ active, setActive }) => {
   const dispatch = useDispatch();
   const activeIndex = useSelector((state) => state.sort.sortId);
 
-  const onClickCategory = (index, sort) => {
+  const onClickOption = (index, sort) => {
     if (activeIndex !== index) {
       dispatch(setSortId(index));
       dispatch(setSortBy(sort));
+      dispatch(setSorted(sort.type));
     }
   };
 
@@ -37,7 +39,7 @@ export const Sort = ({ active, setActive }) => {
                 className={
                   activeIndex === index ? `${styles.sortRadio} ${styles.active}` : styles.sortRadio
                 }
-                onClick={() => onClickCategory(index, option)}
+                onClick={() => onClickOption(index, option)}
                 type="radio"
                 name="radio"
               />

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter, setSearchText } from '@/store/users/usersSlice.js';
+import { setKeysFilters, setSearchText, setSorted, setUsers } from '@/store/users/usersSlice.js';
 
 import { Sort } from 'components/Sort/Sort.jsx';
 import { SearchIcon } from '@/assets/icon/SearchIcon.jsx';
@@ -12,15 +12,21 @@ const filters = ['firstName', 'lastName', 'userTag'];
 
 export const Search = () => {
   const dispatch = useDispatch();
+  const { users } = useSelector((state) => state.users);
   const { searchText } = useSelector((state) => state.users);
-  const sortId = useSelector((state) => state.sort.sortId);
+  const { sortId, sortBy } = useSelector((state) => state.sort);
 
   const [modalActive, setModalActive] = useState(false);
 
   const handleChange = (e) => {
     dispatch(setSearchText(e.target.value));
-    dispatch(setFilter(filters));
+    dispatch(setUsers(users));
+    dispatch(setSorted(sortBy.type));
   };
+
+  useEffect(() => {
+    dispatch(setKeysFilters(filters));
+  }, []);
 
   return (
     <>
