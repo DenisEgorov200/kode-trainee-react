@@ -14,6 +14,12 @@
     margin: 0 0 12px 0;
   }
 
+  &Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   &Avatar {
     display: flex;
     align-items: center;
@@ -64,4 +70,17 @@
     text-transform: capitalize;
     color: #55555c;
   }
+
+  &Date {
+    font-family: $mainFont;
+    line-height: 20px;
+    font-size: 15px;
+    color: $tetriaryColor;
+  }
+}
+
+.active {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

@@ -30,9 +30,9 @@ const usersSlice = createSlice({
           a.firstName.localeCompare(b.firstName),
         );
       } else {
-        state.filteredUsers = state.filteredUsers
-          ?.filter((item) => item.birthday)
-          .sort((a, b) => new Date(a.birthday).getTime() - new Date(b.birthday).getTime());
+        state.filteredUsers = state.filteredUsers.sort(
+          (a, b) => new Date(a.birthday).getTime() - new Date(b.birthday).getTime(),
+        );
       }
     },
   },

@@ -15,6 +15,7 @@ const listOptions = [
 
 export const Sort = ({ active, setActive }) => {
   const dispatch = useDispatch();
+  const { sortBy } = useSelector((state) => state.sort);
   const activeIndex = useSelector((state) => state.sort.sortId);
 
   const onClickOption = (index, sort) => {
@@ -22,6 +23,7 @@ export const Sort = ({ active, setActive }) => {
       dispatch(setSortId(index));
       dispatch(setSortBy(sort));
       dispatch(setSorted(sort.type));
+      setActive(false);
     }
   };
 
