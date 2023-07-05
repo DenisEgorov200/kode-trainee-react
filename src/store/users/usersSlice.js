@@ -30,8 +30,16 @@ const usersSlice = createSlice({
     },
     setSorted: (state, action) => {
       const sortByAlphabet = (a, b) => a.firstName.localeCompare(b.firstName);
-      const sortByBirthday = (a, b) =>
-        new Date(a.birthday).getTime() - new Date(b.birthday).getTime();
+      const sortByBirthday = (a, b) => {
+        const aDate = new Date(a.birthday);
+        const bDate = new Date(b.birthday);
+
+        if (aDate.getMonth() === bDate.getMonth()) {
+          return aDate.getDate() - bDate.getDate();
+        } else {
+          return aDate.getMonth() - bDate.getMonth();
+        }
+      };
 
       state.filteredUsers = state.filteredUsers.sort(
         action.payload === 'alphabet' ? sortByAlphabet : sortByBirthday,
