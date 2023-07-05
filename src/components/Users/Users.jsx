@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useGetUsersQuery } from '@/store/users/usersApiSlice.js';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUsers } from '@/store/users/usersSlice.js';
+import { setFilter, setUsers } from '@/store/users/usersSlice.js';
 
 import { ErrorBoundary } from 'components/ErrorBoundary/ErrorBoundary.jsx';
 import { ErrorFound } from 'components/ErrorFound/ErrorFound.jsx';
@@ -19,6 +19,7 @@ export const Users = () => {
 
   useEffect(() => {
     dispatch(setUsers(usersName?.items));
+    dispatch(setFilter());
   }, [userType]);
 
   if (isError) return <ErrorBoundary />;

@@ -1,6 +1,6 @@
 import { fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { apiSlice } from '@/store/apiSlice.js';
-import { setUsers } from '@/store/users/usersSlice.js';
+import { setFilter, setUsers } from '@/store/users/usersSlice.js';
 
 const usersApiSlice = apiSlice.injectEndpoints({
   reducerPath: 'apiSlice',
@@ -21,6 +21,7 @@ const usersApiSlice = apiSlice.injectEndpoints({
         try {
           const { data } = await queryFulfilled;
           dispatch(setUsers(data.items));
+          dispatch(setFilter());
         } catch (err) {
           console.log(err);
         }

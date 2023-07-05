@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setKeysFilters, setSearchText, setSorted, setUsers } from '@/store/users/usersSlice.js';
+import {
+  setFilter,
+  setKeysFilters,
+  setSearchText,
+  setSorted,
+  setUsers,
+} from '@/store/users/usersSlice.js';
 
 import { Sort } from 'components/Sort/Sort.jsx';
 import { SearchIcon } from '@/assets/icon/SearchIcon.jsx';
@@ -22,6 +28,7 @@ export const Search = () => {
     dispatch(setSearchText(e.target.value));
     dispatch(setUsers(users));
     dispatch(setSorted(sortBy.type));
+    dispatch(setFilter());
   };
 
   useEffect(() => {
