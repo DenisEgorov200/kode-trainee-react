@@ -9,9 +9,13 @@ export const useDragging = (ref, body, setActive) => {
     const dragLineRef = ref.current;
     const bodyRef = body.current;
 
+    const resizeWindows = () => {
+      if (window.innerWidth > 1024) updateSheetHeight(25);
+    };
+
     const dragStart = (e) => {
       setIsDragging(true);
-      setStartY(e.pageY);
+      setStartY(e.touches?.[0].pageY);
       setStartHeight(bodyRef.offsetHeight);
       bodyRef.classList.add('dragging');
     };
@@ -22,30 +26,34 @@ export const useDragging = (ref, body, setActive) => {
       const sheetHeight = parseInt(bodyRef.style.height);
       sheetHeight < 25
         ? setActive(false)
-        : sheetHeight > 75
+        : sheetHeight > 50
         ? updateSheetHeight(100)
-        : updateSheetHeight(25);
+        : updateSheetHeight('initial');
     };
 
     const updateSheetHeight = (height) => {
-      bodyRef.style.height = `${height}vh`;
+      height === 'initial'
+        ? (bodyRef.style.height = 'initial')
+        : (bodyRef.style.height = `${height}vh`);
     };
 
     const dragging = (e) => {
       if (!isDragging) return;
-      const delta = startY - e.pageY;
+      const delta = startY - e.touches?.[0].pageY;
       const newHeight = ((startHeight + delta) / window.innerHeight) * 100;
       updateSheetHeight(newHeight);
     };
 
-    document.addEventListener('mouseup', dragStop);
-    dragLineRef.addEventListener('mousedown', dragStart);
-    document.addEventListener('mousemove', dragging);
+    window.addEventListener('resize', resizeWindows);
+    document.addEventListener('touchend', dragStop);
+    dragLineRef.addEventListener('touchstart', dragStart);
+    document.addEventListener('touchmove', dragging);
 
     return () => {
-      document.removeEventListener('mouseup', dragStop);
-      dragLineRef.removeEventListener('mousedown', dragStart);
-      document.removeEventListener('mousemove', dragging);
+      window.addEventListener('resize', resizeWindows);
+      document.removeEventListener('touchend', dragStop);
+      dragLineRef.removeEventListener('touchstart', dragStart);
+      document.removeEventListener('touchmove', dragging);
     };
-  }, [isDragging, ref, body]);
+  }, [isDragging, ref, body, window.innerWidth]);
 };

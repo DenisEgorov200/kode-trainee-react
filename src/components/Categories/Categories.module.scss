@@ -3,6 +3,9 @@
 .categories {
   &List {
     display: flex;
+    @include tablet {
+      overflow-x: scroll;
+    }
   }
 
   &Item {
