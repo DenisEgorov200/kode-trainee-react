@@ -15,7 +15,7 @@ export const Home = () => {
       {showRealTimeStatus ? <RealTimeStatus isOnline={isOnline} /> : <Header />}
 
       <div className={styles.home}>
-        <div className={`container ${styles.homeContainer}`}>
+        <div className={`${styles.homeContainer} ${styles.container}`}>
           <Users />
         </div>
       </div>

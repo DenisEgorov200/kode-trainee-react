@@ -5,6 +5,7 @@ import { setSorted } from '@/store/users/usersSlice.js';
 
 import { Modal } from 'components/Modal/Modal.jsx';
 
+import { CanselIcon } from 'assets/icon/CancelIcon.jsx';
 import { CloseIcon } from 'assets/icon/CloseIcon.jsx';
 import styles from './Sort.module.scss';
 
@@ -15,7 +16,6 @@ const listOptions = [
 
 export const Sort = ({ active, setActive }) => {
   const dispatch = useDispatch();
-  const { sortBy } = useSelector((state) => state.sort);
   const activeIndex = useSelector((state) => state.sort.sortId);
 
   const onClickOption = (index, sort) => {
@@ -29,8 +29,9 @@ export const Sort = ({ active, setActive }) => {
 
   return (
     <div className={styles.sort}>
-      <Modal active={active} setActive={setActive}>
+      <Modal active={active} setActive={setActive} className={styles.sortModal}>
         <div className={styles.sortHeader}>
+          <CanselIcon className={styles.sortCancel} onClick={() => setActive(false)} />
           <h3 className={styles.sortTitle}>Сортировка</h3>
           <CloseIcon className={styles.sortClose} onClick={() => setActive(false)} />
         </div>

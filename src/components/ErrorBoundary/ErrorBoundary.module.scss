@@ -7,6 +7,11 @@
   justify-content: center;
   padding: 133px 0;
 
+  @include tablet {
+    height: 100vh;
+    padding: 0;
+  }
+
   &Img {
     width: 56px;
     height: 56px;

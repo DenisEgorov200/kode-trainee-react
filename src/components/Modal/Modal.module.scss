@@ -12,14 +12,42 @@
   justify-content: center;
   background: rgba(5, 5, 16, 0.16);
 
+  @include tablet {
+    justify-content: center;
+    align-items: flex-end;
+  }
+
   &Content {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-width: 330px;
+    max-height: 100%;
     padding: 24px 16px;
     border-radius: 20px;
     background: $whiteColor;
+
+    @include tablet {
+      border-radius: 20px 20px 0 0;
+    }
+  }
+
+  &Line {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 12px;
+    transform: translate(-50%);
+    width: 56px;
+    height: 4px;
+    content: '';
+    background: $secondaryColor;
+    border-radius: 2px;
+    cursor: grab;
+
+    @include tablet {
+      display: block;
+    }
   }
 }

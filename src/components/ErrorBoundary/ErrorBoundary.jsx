@@ -8,7 +8,6 @@ export const ErrorBoundary = () => {
   const navigate = useNavigate();
   const handleClick = () => {
     navigate('/');
-    window.location.reload(false);
   };
 
   return (
@@ -16,7 +15,7 @@ export const ErrorBoundary = () => {
       <img className={styles.errorImg} src={flyingSaucer} alt="flying saucer" />
       <h4 className={styles.errorTitle}>Какой-то сверхразум все сломал</h4>
       <span className={styles.errorSubTitle}>Постараемся быстро починить</span>
-      <button type="button" className="btn" onClick={handleClick}>
+      <button type="button" className={styles.btn} onClick={handleClick}>
         Попробовать снова
       </button>
     </div>

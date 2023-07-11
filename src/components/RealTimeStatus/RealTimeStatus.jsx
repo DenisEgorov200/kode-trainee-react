@@ -4,8 +4,12 @@ import styles from './RealTimeStatus.module.scss';
 
 export const RealTimeStatus = ({ isOnline }) => {
   return (
-    <header className={isOnline ? `${styles.status} ${styles.active}` : styles.status}>
-      <div className="container">
+    <header className={styles.status}>
+      <div
+        className={
+          isOnline ? `${styles.statusContainer} ${styles.active}` : `${styles.statusContainer}`
+        }
+      >
         <h3 className={styles.statusTitle}>Поиск</h3>
         {isOnline ? (
           <span>Секундочку, гружусь...</span>

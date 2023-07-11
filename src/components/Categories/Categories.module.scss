@@ -29,5 +29,10 @@
     line-height: 20px;
     color: $primaryColor;
     border-bottom: 2px solid $activePrimaryColor;
+
+    @include tablet {
+      font-weight: 500;
+      color: $tetriaryColor;
+    }
   }
 }
