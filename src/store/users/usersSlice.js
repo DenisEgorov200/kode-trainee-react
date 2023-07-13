@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { sortByBirthday } from 'components/utils/sortByBirthday.js';
-import { sortByAlphabet } from 'components/utils/sortByAlphabet.js';
+import { sortByBirthday } from '@/utils/sortByBirthday.js';
+import { sortByAlphabet } from '@/utils/sortByAlphabet.js';
 
 const initialState = {
   users: [],
@@ -34,6 +34,7 @@ const usersSlice = createSlice({
       state.keysFilters = action.payload;
     },
     setSorted: (state, action) => {
+      state.sortedUsers = state.filteredUsers;
       const today = new Date().getMonth();
 
       state.sortedBirthdays = state.sortedUsers

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { setCurrentUser } from '@/store/users/currentUserSlice.js';
-import { formatDateMonth } from 'components/utils/formatDateMonth.js';
+import { formatDateMonth } from '@/utils/formatDateMonth.js';
 
 import plug from 'assets/img/Plug.jpg';
 import styles from './Users.module.scss';

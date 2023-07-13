@@ -1,4 +1,4 @@
-import { getDayOfYear } from 'components/utils/getDayOfYear.js';
+import { getDayOfYear } from '@/utils/getDayOfYear.js';
 
 export const sortByBirthday = (a, b) => {
   const dateA = new Date(a.birthday);

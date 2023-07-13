@@ -7,9 +7,9 @@ import { ErrorBoundary } from 'components/ErrorBoundary/ErrorBoundary.jsx';
 import { ErrorFound } from 'components/ErrorFound/ErrorFound.jsx';
 import { User } from 'components/Users/User.jsx';
 import { UserSkeleton } from 'components/Users/UserSkeleton.jsx';
+import { YearLine } from 'components/UI/YearLine/YearLine.jsx';
 
 import styles from './Users.module.scss';
-import { YearLine } from 'components/UI/YearLine/YearLine.jsx';
 
 export const Users = () => {
   const dispatch = useDispatch();

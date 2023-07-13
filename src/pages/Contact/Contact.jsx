@@ -1,35 +1,34 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useGetUsersQuery } from '@/store/users/usersApiSlice.js';
 
-import { formatPhone } from 'components/utils/formatPhone.js';
-import { getCurrentAge } from 'components/utils/getCurrentAge.js';
-import { formatDate } from 'components/utils/formatDate.js';
+import { Loader } from 'components/UI/Loader/Loader.jsx';
+import { formatPhone } from '@/utils/formatPhone.js';
+import { getCurrentAge } from '@/utils/getCurrentAge.js';
+import { formatDate } from '@/utils/formatDate.js';
 
 import { CanselIcon } from 'assets/icon/CancelIcon.jsx';
 import { PhoneIcon } from 'assets/icon/PhoneIcon.jsx';
 import { FavoriteIcon } from 'assets/icon/FavoriteIcon.jsx';
 import plug from 'assets/img/Plug.jpg';
 import styles from './Contact.module.scss';
-import { useGetCurrentUsersQuery } from '@/store/users/usersApiSlice.js';
 
 export const Contact = () => {
   const { id } = useParams();
-  const { data: users } = useGetCurrentUsersQuery({ id });
-  console.log(id);
-
-  console.log(users);
-
-  const user = useSelector((state) => state.currentUser.user);
+  const userType = useSelector((state) => state.category.category.type);
   const navigate = useNavigate();
 
-  const date = new Date(user.birthday);
+  const { data: users, isLoading } = useGetUsersQuery({ example: userType });
+  const user = users ? users?.items?.find((item) => item.id === id) : '';
 
-  // console.log(Object.keys(user || {}).length === 0 && users?.items);
+  const date = new Date(user.birthday);
 
   const onClickCancel = () => {
     navigate('/');
   };
+
+  if (isLoading) return <Loader />;
 
   return (
     <div className={styles.contact}>

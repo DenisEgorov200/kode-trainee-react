@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Search } from 'components/UI/Search/Search.jsx';
+import { Search } from 'components/Search/Search.jsx';
 import { Categories } from 'components/Categories/Categories.jsx';
 
 import styles from './Header.module.scss';
