@@ -24,7 +24,14 @@ const usersApiSlice = apiSlice.injectEndpoints({
         }
       },
     }),
+    getCurrentUsers: builder.query({
+      query: (arg) => {
+        const { id } = arg;
+
+        return `/contact/${id}`;
+      },
+    }),
   }),
 });
 
-export const { useGetUsersQuery } = usersApiSlice;
+export const { useGetUsersQuery, useGetCurrentUsersQuery } = usersApiSlice;
