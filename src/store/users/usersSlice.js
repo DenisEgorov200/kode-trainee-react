@@ -1,8 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { sortByBirthday } from 'components/utils/sortByBirthday.js';
+import { sortByAlphabet } from 'components/utils/sortByAlphabet.js';
 
 const initialState = {
   users: [],
   filteredUsers: [],
+  sortedUsers: [],
+  sortedBirthdays: [],
   keysFilters: [],
   searchText: '',
 };
@@ -14,6 +18,7 @@ const usersSlice = createSlice({
     setUsers: (state, action) => {
       state.users = action.payload;
       state.filteredUsers = state.users;
+      state.sortedUsers = state.filteredUsers;
     },
     setSearchText: (state, action) => {
       state.searchText = action.payload;
@@ -29,21 +34,20 @@ const usersSlice = createSlice({
       state.keysFilters = action.payload;
     },
     setSorted: (state, action) => {
-      const sortByAlphabet = (a, b) => a.firstName.localeCompare(b.firstName);
-      const sortByBirthday = (a, b) => {
-        const aDate = new Date(a.birthday);
-        const bDate = new Date(b.birthday);
+      const today = new Date().getMonth();
 
-        if (aDate.getMonth() === bDate.getMonth()) {
-          return aDate.getDate() - bDate.getDate();
-        } else {
-          return aDate.getMonth() - bDate.getMonth();
-        }
-      };
+      state.sortedBirthdays = state.sortedUsers
+        ?.filter((user) => new Date(user.birthday).getMonth() >= today)
+        ?.sort(sortByBirthday);
 
-      state.filteredUsers = state.filteredUsers.sort(
-        action.payload === 'alphabet' ? sortByAlphabet : sortByBirthday,
-      );
+      const notSortedBirthdays = state.sortedUsers
+        ?.filter((user) => !state.sortedBirthdays.includes(user))
+        ?.sort(sortByBirthday);
+
+      state.sortedUsers =
+        action.payload === 'alphabet'
+          ? state.filteredUsers?.sort(sortByAlphabet)
+          : [...state.sortedBirthdays, ...notSortedBirthdays];
     },
   },
 });

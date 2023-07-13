@@ -8,6 +8,7 @@ export const ErrorBoundary = () => {
   const navigate = useNavigate();
   const handleClick = () => {
     navigate('/');
+    location.reload();
   };
 
   return (

@@ -1,0 +1,31 @@
+@use 'scss' as *;
+
+.line {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 0;
+  font-family: $mainFont;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 20px;
+  color: $secondaryColor;
+
+  &::after,
+  &::before {
+    position: absolute;
+    width: 45%;
+    top: 50%;
+    content: '';
+    border: 1px solid $secondaryColor;
+  }
+
+  &::after {
+    left: 0;
+  }
+
+  &::before {
+    right: 0;
+  }
+}
