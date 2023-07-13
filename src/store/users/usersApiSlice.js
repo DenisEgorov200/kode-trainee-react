@@ -4,9 +4,6 @@ import { setFilter, setUsers } from '@/store/users/usersSlice.js';
 
 const usersApiSlice = apiSlice.injectEndpoints({
   reducerPath: 'apiSlice',
-  baseQuery: fetchBaseQuery({
-    baseUrl: 'https://stoplight.io/mocks/kode-frontend-team/koder-stoplight/86566464',
-  }),
   endpoints: (builder) => ({
     getUsers: builder.query({
       query: (arg) => {

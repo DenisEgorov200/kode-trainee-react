@@ -48,6 +48,11 @@
     display: flex;
     align-items: center;
     margin: 0 0 3px 0;
+
+    @include mobile {
+      align-items: flex-start;
+      flex-direction: column;
+    }
   }
 
   &Name {
@@ -65,6 +70,10 @@
     line-height: 18px;
     color: $tetriaryColor;
     margin: 0 0 0 4px;
+
+    @include mobile {
+      margin: 0;
+    }
   }
 
   &Position {
