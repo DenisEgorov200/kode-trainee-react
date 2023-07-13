@@ -46,23 +46,23 @@ export const Contact = () => {
         <span className={styles.contactPosition}>{user.position}</span>
         <CanselIcon className={styles.contactCancel} onClick={onClickCancel} />
       </div>
-      {/*<div className={styles.contactBody}>*/}
-      {/*  <div className={`container ${styles.contactContainer}`}>*/}
-      {/*    <div className={styles.contactRow}>*/}
-      {/*      <div className={styles.contactYearBirth}>*/}
-      {/*        <FavoriteIcon className={styles.contactIcon} />*/}
-      {/*        <span>{formatDate(date)}</span>*/}
-      {/*      </div>*/}
-      {/*      <span className={styles.contactYear}>{getCurrentAge(date)}</span>*/}
-      {/*    </div>*/}
-      {/*    <div className={styles.contactRow}>*/}
-      {/*      <div className={styles.contactTel}>*/}
-      {/*        <PhoneIcon className={styles.contactIcon} />*/}
-      {/*        <a href={`tel:${user.phone}`}>{formatPhone(user.phone)}</a>*/}
-      {/*      </div>*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
+      <div className={styles.contactBody}>
+        <div className={`container ${styles.contactContainer}`}>
+          <div className={styles.contactRow}>
+            <div className={styles.contactYearBirth}>
+              <FavoriteIcon className={styles.contactIcon} />
+              <span>{formatDate(date)}</span>
+            </div>
+            <span className={styles.contactYear}>{getCurrentAge(date)}</span>
+          </div>
+          <div className={styles.contactRow}>
+            <div className={styles.contactTel}>
+              <PhoneIcon className={styles.contactIcon} />
+              <a href={`tel:${user.phone}`}>{formatPhone(user.phone)}</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
