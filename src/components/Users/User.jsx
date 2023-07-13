@@ -21,7 +21,7 @@ export const User = ({ user }) => {
   };
 
   return (
-    <div
+    <li
       className={sortId === 1 ? `${styles.user} ${styles.active}` : styles.user}
       onClick={onClickUser}
     >
@@ -40,6 +40,6 @@ export const User = ({ user }) => {
         </div>
       </div>
       {sortId === 1 && <p className={styles.userDate}>{formatDateMonth(birthdayDate)}</p>}
-    </div>
+    </li>
   );
 };

@@ -30,13 +30,13 @@ export const Users = () => {
   if (!sortedUsers?.length) return <ErrorFound />;
 
   return (
-    <div className={styles.users}>
+    <ul className={styles.users}>
       {sortedUsers?.map((user, index) => (
         <React.Fragment key={`${user.id}_${index}`}>
           <User user={user} />
           {index === sortedBirthdays?.length - 1 && <YearLine />}
         </React.Fragment>
       ))}
-    </div>
+    </ul>
   );
 };
