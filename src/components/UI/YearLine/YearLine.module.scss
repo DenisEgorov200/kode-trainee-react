@@ -15,10 +15,14 @@
   &::after,
   &::before {
     position: absolute;
-    width: 45%;
+    width: 40%;
     top: 50%;
     content: '';
     border: 1px solid $secondaryColor;
+
+    @include mobile {
+      width: 20%;
+    }
   }
 
   &::after {

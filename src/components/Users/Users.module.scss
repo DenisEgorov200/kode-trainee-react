@@ -33,6 +33,10 @@
     img {
       max-width: 100%;
     }
+
+    @include mobile {
+      margin: 0 5px 0 0;
+    }
   }
 
   &Info {
